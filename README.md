@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @dra90n13, my name Alex, i`m try to learn developing from 25 february 2025.
+- 👀 I’m interested in computer games (strategy), sport with my dog. 
+- 🌱 I’m currently learning pyton, english and serbian language.
+- 📫 How to reach me  - telegram @Hairalex13
+- ⚡ Fun fact: more then half of my life i worked hairdresser-colorist
