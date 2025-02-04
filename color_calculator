@@ -1,0 +1,70 @@
+start_color = 5.0 #float(input("введите исходный УГТ: "))
+finish_color = 8.34 #float(input("введите желаемый УГТ: "))
+colored = 0 #int(input("волос окрашен?: "))
+gray_level = 50 #int(input("процент седины (от 0 до 100)?: "))
+start_lightness = int(start_color)
+start_shade = format(start_color % 1, ".2f")
+finish_lightness = int(finish_color)
+finish_shade = format(finish_color % 1, ".2f")
+
+
+#функция определяет необходимый для реакции окислитель
+def oxyde_change(start_lightness_level, finish_lightness_level, colored_status):
+    lightness_level = finish_lightness_level - start_lightness_level
+    if colored_status == 1:
+            if lightness_level in range(-9, -3):
+                oxide = 0
+                print("требуется предварительная препигментация!")
+            elif lightness_level in range(-3, -1):
+                oxide = 3
+            elif lightness_level in range(-1, 1):
+                oxide = 6
+            else:
+                oxide = 0
+                print("требуется предварительное обесцвечивание!")
+    else:
+        if lightness_level in range(-9, -3):
+            oxide = 0
+            print("требуется предварительная препигментация!")
+        elif lightness_level in range(-3, -1):
+            oxide = 3
+        elif lightness_level in range(-1, 2):
+            oxide = 6
+        elif lightness_level == 2:
+            oxide = 9
+        elif lightness_level == 3:
+            oxide = 12
+        else:
+            oxide = 0
+            print("требуется предварительное обесцвечивание!")
+
+    return oxide
+
+#функция определяет нужно ли добавлять натуральныый цвет в формулу
+#на этапе когда буду добавлять пропорции - расписать пропорции в эту часть.
+def gray_calculate(gray_level, finish_lightness_level):
+    if gray_level < 30:
+        natural_tone = finish_lightness_level
+    elif gray_level < 70:
+        natural_tone = finish_lightness_level
+    elif gray_level >= 70:
+        natural_tone = finish_lightness_level
+    return natural_tone
+
+#непосредственно программа
+oxigen = oxyde_change(int(start_lightness), int(finish_lightness), bool(colored))
+gray = gray_calculate(gray_level, finish_lightness)
+print("для окрашивания нужно взять:")
+print(str(oxigen) + "% +", end=' ')
+if gray_level > 10:
+    print(str(gray) + '.0 +', end = ' ')
+print(str(finish_color) + " +", end=' ')
+
+print()
+print()
+print()
+
+
+#кусок нужен для контроля того что видит программа
+print(start_lightness, start_shade, finish_lightness, finish_shade, sep = ' | ')
+
